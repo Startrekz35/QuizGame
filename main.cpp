@@ -97,7 +97,7 @@ std::cout << std::endl;
 
 
 std::cout << "What is the 18 letter of the Alphabet?" << std::endl; //Second Question
-while (std::cin >> answer2) //Question looping
+while (std::cin >> answer2) //Question loop
 {
     if (answer2 != 'r' && 'R') //Repeats condition from first question
     {
