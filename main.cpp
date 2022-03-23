@@ -25,11 +25,11 @@ int main()
 currentamount = 500;
 mon = &currentamount;
 
-std::cout << "You'll start with: $" << tm << std::endl;
-std::cout << "This first question is worth: $" << currentamount << std::endl;
-std::cout << "Every time you get an answer wrong, you'll lose a certain amount." << std::endl;
-std::cout << "For this question, you lose $100 with every incorrect attempt." << std::endl;
-std::cout << "We are also playing with golf rules, meaning: The lowest amount of tries wins you a bonus amount of money." << std::endl;
+std::cout << "You'll start with: $" << tm << std::endl
+            << "This first question is worth: $" << currentamount << std::endl
+            << "Every time you get an answer wrong, you'll lose a certain amount." << std::endl
+            << "For this question, you lose $100 with every incorrect attempt." << std::endl
+            << "We are also playing with golf rules, meaning: The lowest amount of tries wins you a bonus amount of money." << std::endl;
 
 
 
@@ -50,9 +50,10 @@ while (std::cin >> answer) //Question loop
     {
         ++tries; //Increments
         currentamount += penalty; 
-        std::cout << "That is incorrect, try again" << std::endl;
-        std::cout << "Number of tries: " << tries << std::endl;
-        std::cout << "Current Amount: " << currentamount << std::endl;
+        
+        std::cout << "That is incorrect, try again" << std::endl
+                    << "Number of tries: " << tries << std::endl
+                    << "Current Amount: $" << currentamount << std::endl;
             
             if (currentamount == 0)
                 {
@@ -81,15 +82,16 @@ if (p == 1) //Conditional based on number of tries
         std::cout << std::endl;
         std::cout << "For your reward, your number of tries will be shortened by ten." << std::endl;
         *reset = *reset - 10; // -9
-        std::cout << "Current Amount: " << currentamount << std::endl;
-        std::cout << "Number of tries: " << *reset << std::endl; //Checks to be sure
-        std::cout << "Let us keep moving." << std::endl;
+        
+        std::cout << "Current Amount: $" << currentamount << std::endl
+                    << "Number of tries: " << *reset << std::endl //Checks to be sure
+                    << "Let us keep moving." << std::endl;
     }
     else
     {
-        std::cout << "It took you: " << p << " tries to get the answer: " << a << "?!" << std::endl;
-        std::cout << "Let us keep moving" << std::endl;
-        std::cout << "Current Amount: " << currentamount << std::endl;
+        std::cout << "It took you: " << p << " tries to get the answer: " << a << "?!" << std::endl
+                    << "Let us keep moving" << std::endl
+                    << "Current Amount: $" << currentamount << std::endl;
     }
 
 
@@ -99,16 +101,9 @@ std::cout << std::endl;
 std::cout << "What is the 18 letter of the Alphabet?" << std::endl; //Second Question
 while (std::cin >> answer2) //Question loop
 {
-    if (answer2 != 'r' && 'R') //Repeats condition from first question
-    {
-        ++tries; //Increments
-        currentamount += penalty; 
-        std::cout << "That is incorrect, try again" << std::endl;
-        std::cout << "Number of tries: " << tries << std::endl;
-        std::cout << "Current Amount: " << currentamount << std::endl;
-    }
     
-    else if (answer2 == 'r' || 'R') //True answer
+    
+    if (answer2 == 'r' && 'R') //True answer (FIX THE ERROR HERE)
     {
         ++tries;
         std::cout << "That is correct" << std::endl;
@@ -116,21 +111,29 @@ while (std::cin >> answer2) //Question loop
         std::cout << "Number of tries: " << tries << std::endl;
         break; //Breaks the while loop
     }
-    
+    else
+    {
+        ++tries; //Increments
+        currentamount += penalty; 
+        std::cout << "That is incorrect, try again" << std::endl
+                    << "Number of tries: " << tries << std::endl
+                    << "Current Amount: $" << currentamount << std::endl;
+    }
     
 }
 
 if (p >= 2)
 {
-        std::cout << "It took you: " << p << " tries to get the answer: " << a << "?!" << std::endl;
-        std::cout << "Let us keep moving" << std::endl;
-        std::cout << "Current Amount: " << currentamount << std::endl;
+        std::cout << "It took you: " << p << " tries to get the answer: " << a << "?!" << std::endl
+                    << "Let us keep moving" << std::endl
+                    << "Current Amount: $" << currentamount << std::endl;
 }
 
 else
 {
     std::cout << "It really took you only: " << p << " try to get the answer: " << a << "?! You're awesome!" << std::endl; //Using Reference Variables to check numbers
     std::cout << std::endl;
+    
     if (p <= -5) //Condition based on number of tries
     {
         *reset = *reset - 5;
