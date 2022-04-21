@@ -4,19 +4,8 @@
 #include <cstdlib>
 #include <cmath>
 #include <any>
+#include "voidset.cpp"
 
-signed int answer;
-char answer2;
-signed int &a {answer}; //Reference to link a to the number of answers
-signed int tries {0}; //signed gives the user the chance to enter negative numbers
-signed int &p {tries}; //Reference to link p to the number of tries
-signed int currentamount; //Current Amount for the question
-signed int totalamount {0}; //Total Amount
-signed int penalty {-100}; //Penalty for incorrect answer
-signed int &ca {currentamount};
-signed int *mon; //Linked to current amount
-signed int &tm {totalamount};
-signed int *reset; //Want to try something special as a bonus for right answers in the least amount of tries
 
 
 int main()
@@ -29,13 +18,17 @@ std::cout << "You'll start with: $" << tm << std::endl
             << "This first question is worth: $" << currentamount << std::endl
             << "Every time you get an answer wrong, you'll lose a certain amount." << std::endl
             << "For this question, you lose $100 with every incorrect attempt." << std::endl
-            << "We are also playing with golf rules, meaning: The lowest amount of tries wins you a bonus amount of money." << std::endl;
+            << "We are also playing with golf rules, meaning: The lowest amount of tries wins you a bonus amount of money." << std::endl
+            << "To make things even more interesting, the bonus money stacks, so if you meet the criteria for both bonuses, you receive them too!" << std::endl;
 
 
 
 std::cout << "BONUS" << std::setw(10) << "Tries" << std::endl;
 std::cout << std::endl;
-std::cout << "$50,000" << std::setw(10) << "Less than -10" << std::endl;
+std::cout << "$50,000" << std::setw(10) << "Less than -10" << std::endl
+            << "$25,000" << std::setw(10) << "Less than -5 tries" << std::endl
+            << "$10,000" << std::setw(10) << "Took 0 tries" << std::endl
+            << "$5,000" << std::setw(10) << "1-5 tries" << std::endl;
 
 
 
@@ -147,6 +140,10 @@ else
     
 
 }
+
+std::cout << std::endl;
+
+std::cout << "Your third question is a multiple choice one" << std::endl;
 
 
 
