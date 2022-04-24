@@ -14,7 +14,7 @@ int main()
 currentamount = 500;
 mon = &currentamount;
 
-std::cout << "You'll start with: $" << tm << std::endl
+std::cout << "You'll start with: $" << tm << std::endl //total amount
             << "This first question is worth: $" << currentamount << std::endl
             << "Every time you get an answer wrong, you'll lose a certain amount." << std::endl
             << "For this question, you lose $100 with every incorrect attempt." << std::endl
@@ -25,10 +25,10 @@ std::cout << "You'll start with: $" << tm << std::endl
 
 std::cout << "BONUS" << std::setw(10) << "Tries" << std::endl;
 std::cout << std::endl;
-std::cout << "$50,000" << std::setw(10) << "Less than -10" << std::endl
-            << "$25,000" << std::setw(10) << "Less than -5 tries" << std::endl
-            << "$10,000" << std::setw(10) << "Took 0 tries" << std::endl
-            << "$5,000" << std::setw(10) << "1-5 tries" << std::endl;
+std::cout << "$50,000" << std::setw(10) << std::setfill('*') << "Less than -10" << std::endl //Using setfill
+            << "$25,000" << std::setfill('*') << std::setw(10) << "Less than -5 tries" << std::endl
+            << "$10,000" << std::setfill('*') << std::setw(10) << "Took 0 tries" << std::endl
+            << "$5,000" << std::setfill('*') << std::setw(10) << "1-5 tries" << std::endl;
 
 
 
@@ -91,12 +91,22 @@ if (p == 1) //Conditional based on number of tries
 std::cout << std::endl;
 
 
-std::cout << "What is the 18 letter of the Alphabet?" << std::endl; //Second Question
+
+std::cout << std::endl;
+
+std::cout << "Your third question is a multiple choice one" << std::endl;
+
+std::cout << "When was C++23's preview release?" << std::endl //Third Question
+            << "Was it: (1) - "
+
+
 while (std::cin >> answer2) //Question loop
 {
     
     
-    if (answer2 == 'r' && 'R') //True answer (FIX THE ERROR HERE)
+
+
+    if (answer2 == 'r' && 'R') //
     {
         ++tries;
         std::cout << "That is correct" << std::endl;
@@ -142,8 +152,6 @@ else
 }
 
 std::cout << std::endl;
-
-std::cout << "Your third question is a multiple choice one" << std::endl;
 
 
 
