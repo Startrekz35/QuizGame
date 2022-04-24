@@ -17,3 +17,7 @@ signed int &ca {currentamount};
 signed int *mon; //Linked to current amount
 signed int &tm {totalamount};
 signed int *reset; //Want to try something special as a bonus for right answers in the least amount of tries
+
+/*Code was moved here as a test and for less clutter. 
+I'm also trying to learn the difference between extern and including the file in the header
+*/
