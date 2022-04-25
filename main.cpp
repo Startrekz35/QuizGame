@@ -4,9 +4,19 @@
 #include <cstdlib>
 #include <cmath>
 #include <any>
-#include "voidset.cpp"
 
-
+signed int answer;
+char answer2;
+signed int &a {answer}; //Reference to link a to the number of answers
+signed int tries {0}; //signed gives the user the chance to enter negative numbers
+signed int &p {tries}; //Reference to link p to the number of tries
+signed int currentamount; //Current Amount for the question
+signed int totalamount {0}; //Total Amount
+signed int penalty {-100}; //Penalty for incorrect answer
+signed int &ca {currentamount};
+signed int *mon; //Linked to current amount
+signed int &tm {totalamount};
+signed int *reset; //Want to try something special as a bonus for right answers in the least amount of tries
 
 int main()
 {
@@ -90,23 +100,12 @@ if (p == 1) //Conditional based on number of tries
 
 std::cout << std::endl;
 
-
-
-std::cout << std::endl;
-
-std::cout << "Your third question is a multiple choice one" << std::endl;
-
-std::cout << "When was C++23's preview release?" << std::endl //Third Question
-            << "Was it: (1) - "
-
-
+std::cout << "What is the 18 letter of the Alphabet?" << std::endl; //Second Question
 while (std::cin >> answer2) //Question loop
 {
     
     
-
-
-    if (answer2 == 'r' && 'R') //
+    if (answer2 == 'r' && 'R') //True answer (FIX THE ERROR HERE)
     {
         ++tries;
         std::cout << "That is correct" << std::endl;
@@ -150,10 +149,5 @@ else
     
 
 }
-
-std::cout << std::endl;
-
-
-
     return 0;
 }
