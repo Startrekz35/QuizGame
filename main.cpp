@@ -13,8 +13,6 @@ void enter() //First attempt at a function in my project
 
 int main()
 {
-
-
 signed int answer;
 char answer2;
 signed int &a {answer}; //Reference to link a to the number of answers
