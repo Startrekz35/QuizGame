@@ -4,6 +4,16 @@
 #include <cstdlib>
 #include <cmath>
 #include <any>
+#include "quizvariables.h"
+
+void enter() //First attempt at a function in my project
+{
+    while (std::cin.get() != '\n');
+}
+
+int main()
+{
+
 
 signed int answer;
 char answer2;
@@ -18,47 +28,62 @@ signed int *mon; //Linked to current amount
 signed int &tm {totalamount};
 signed int *reset; //Want to try something special as a bonus for right answers in the least amount of tries
 
-int main()
-{
-    
+
 currentamount = 500;
 mon = &currentamount;
 
 std::cout << "You'll start with: $" << tm << std::endl; //total amount
-
 std::cout << std::endl
             << "Press Enter to Continue" << std::endl;
-while (std::cin.get()!= '\n'); //Enter to continue
+enter(); //Enter to continue
 
 std::cout << "This first question is worth: $" << currentamount << std::endl;
-while (std::cin.get()!= '\n');
-std::cout << "Every time you get an answer wrong, you'll lose a certain amount." << std::endl
-            << "For this question, you lose $100 with every incorrect attempt." << std::endl
-            << "We are also playing with golf rules, meaning: The lowest amount of tries wins you a bonus amount of money." << std::endl
-            << "To make things even more interesting, the bonus money stacks, so if you meet the criteria for both bonuses, you receive them too!" << std::endl
-            << "You also get stacks of bonus tries based on how many attempts you take to get the right answer" << std::endl;
+std::cout << std::endl;
+enter();
 
+std::cout << "Every time you get an answer wrong, you'll lose a certain amount." << std::endl;
+enter();
+
+std::cout << "For this question, you lose $100 with every incorrect attempt." << std::endl;
+enter();
+
+std::cout << "We are also playing with golf rules, meaning: The lowest amount of tries wins you a bonus amount of money." << std::endl;
+enter();
+
+std::cout << "To make things even more interesting, the bonus money stacks, so if you meet the criteria for both bonuses, you receive them too!" << std::endl;
+enter();
+            
+std::cout << "You also get stacks of bonus tries based on how many attempts you take to get the right answer" << std::endl;
+enter();
 
 int col_width {20};
 std::cout << std::left; //Left Justified
 std::cout << std::setw(col_width) << "Tries" << std::setw(col_width) << "Attempts" << std::endl; //Bonus tries based on amount of attempts
 std::cout << std::setw(col_width) << "-10" << std::setw(col_width) << "1 Attempt" << std::endl;
-
+enter();
 std::cout << std::endl;
+
+std::cout << std::setw(col_width) << "-5" << std::setw(col_width) << "5 Attempt" << std::endl;
+enter();
 
 std::cout << std::left;
 std::cout << std::setfill('-');
 std::cout << std::setw(col_width) << "BONUS" << std::setw(col_width) << "Tries" << std::endl; //Bonus money based on amount of tries left
 std::cout << std::setw(col_width) << "$50,000" << std::setw(15) << "Less than -10" << std::endl;
-std::cout << std::setw(col_width) << "$25,000" << std::setw(20) << "Less than -5 tries" << std::endl;
-std::cout << std::setw(col_width) << "$10,000" << std::setw(14) << "Took 0 tries" << std::endl;
-std::cout << std::setw(col_width) << "$5,000" << std::setw(12) << "1-5 tries" << std::endl;
-std::cout << std::endl;
+enter();
 
+std::cout << std::setw(col_width) << "$25,000" << std::setw(20) << "Less than -5 tries" << std::endl;
+enter();
+
+std::cout << std::setw(col_width) << "$10,000" << std::setw(14) << "Took 0 tries" << std::endl;
+enter();
+
+std::cout << std::setw(col_width) << "$5,000" << std::setw(12) << "1-5 tries" << std::endl;
+enter();
 
 std::cout << "Let's play!" << std::endl
             << "Press Enter to continue" << std::endl;
-while (std::cin.get()!= '\n'); //Enter to continue
+enter(); //Enter to continue
 std::cout << std::endl;
 
 std::cout << "What's 2*6*4" << std::endl; //Question 1
@@ -88,10 +113,10 @@ while (std::cin >> answer) //Question loop
         std::cout << "That is correct" << std::endl;
         std::cout << std::endl;
         std::cout << "Press Enter to Continue" << std::endl;
-        while (std::cin.get()!= '\n');
+        enter();
         std::cout << std::endl;
         std::cout << "Number of tries: " << tries << std::endl;
-        while (std::cin.get()!= '\n');
+        enter();
         break; //Breaks the while loop
     }
 
@@ -103,19 +128,19 @@ if (p == 1) //Conditional based on number of tries
     {
         std::cout << "It really took you only: " << p << " try to get the answer: " << a << "?! You're awesome!" << std::endl; //Using Reference Variables to check numbers
         std::cout << std::endl;
-        while (std::cin.get()!= '\n');
+        enter();
         std::cout << "For your reward, your number of tries will be shortened by ten." << std::endl;
         *reset = *reset - 10; // -9
         
         std::cout << "Current Amount: $" << currentamount << std::endl;
         std::cout << "Number of tries: " << *reset << std::endl; //Checks to be sure
-        while (std::cin.get()!= '\n');
+        enter();
         std::cout << "Let us keep moving." << std::endl;
     }
     else
     {
         std::cout << "It took you: " << p << " tries to get the answer: " << a << "?!" << std::endl;
-        while (std::cin.get()!= '\n');
+        enter();
         std::cout << "Press Enter to Continue" << std::endl
                     << "Let us keep moving" << std::endl
                     << "Current Amount: $" << currentamount << std::endl;
@@ -132,7 +157,7 @@ while (std::cin >> answer2) //Question loop
 {
     
     
-    if (answer2 == 'r' && 'R') //True answer (FIX THE ERROR HERE)
+    if (answer2 == 82 || 114) //(ASCII Code was the trick to fixing the error (R))
     {
         ++tries;
         std::cout << "That is correct" << std::endl;
@@ -240,5 +265,10 @@ else
 
 }
 
+
+std::cout << std::endl;
+
+
+std::cout << "Let's see your final score." << std::endl;
     return 0;
 }
