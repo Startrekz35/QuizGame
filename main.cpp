@@ -210,8 +210,6 @@ if (p == 1) //Conditional based on number of tries
                     enter();
                     std::cout << "Total Amount: $" << tm << std::endl;
     }
-    
-
 
 std::cout << std::endl;
 
@@ -225,18 +223,12 @@ std::cout << "For this question, you lose $" << abs(penalty) << " with every inc
 enter();
 
 std::cout << "What is the 18 letter of the Alphabet?" << std::endl; //Second Question
+
+//Interesting tidbit
+//If the order of the if else conditions are reversed, the code won't work
+// ex. if (answer2 != 82) vs if (answer2 == 82)
 while (std::cin >> answer2) //Question loop
 {
-        if ((answer2 != 82) || (answer2 != 114)) //(ASCII Code was the trick to fixing the error (R))
-    {
-        ++tries;
-        currentamount += penalty; 
-        std::cout << "That is incorrect, try again" << std::endl
-                    << "Number of tries: " << tries << std::endl
-                    << "Current Amount: $" << currentamount << std::endl;
-    }
-
-
         if ((answer2 == 82) || (answer2 == 114))
 	{
         ++tries;
@@ -256,6 +248,16 @@ while (std::cin >> answer2) //Question loop
         break; //Breaks the while loop
 
 	}
+
+        else  
+    {
+        ++tries;
+        currentamount += penalty; 
+        std::cout << "That is incorrect, try again" << std::endl
+                    << "Number of tries: " << tries << std::endl
+                    << "Current Amount: $" << currentamount << std::endl;
+    }
+
 }
 
 if (p == 1) //Conditional based on number of tries
@@ -297,6 +299,8 @@ if (p == 1) //Conditional based on number of tries
                     std::cout << "Total Amount: $" << tm << std::endl;
     }
 
+    totaltries += tries;
+    std::cout << totaltries << std::endl;
 std::cout << std::endl;
 /****************************************************************************************/
 tries = 0;
