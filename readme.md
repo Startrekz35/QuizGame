@@ -19,3 +19,7 @@ I'm going to keep this project short (This is an unintentional lie).
 So I'm going to wrap up all the variables with a three question quiz
 Limiting this quiz to 3 questions. Since I'm nearly finished learning the basics for C++, so let's see how I struggle to wrap this up
 I've also learned that comments are SUPER IMPORTANT and functions are a LIFESAVER
+
+Update 7/17
+I'm still wrapping up this project and tweaking the variable and creating the conclusion
+I had to add a variable to keep track of the bonus number of tries and had account for the pointer-to-address variable: reset
