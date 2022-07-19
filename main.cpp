@@ -201,7 +201,7 @@ if (p == 1) //Conditional based on number of tries
         enter();
 
     }
-    else if (p < 1 && p <= 5) //Conditional based on tries up to 5 attempts
+    else if (p > 1 && p <= 5) //Conditional based on tries up to 5 attempts
     {
         std::cout << "It took you: " << p << " tries to get the answer: " << answer << "?!" << std::endl;
         enter();
@@ -297,7 +297,7 @@ if (p == 1)
                         enter();
 
     }
-    else if (p < 1 && p <= 5)
+    else if (p > 1 && p <= 5)
     {
         totaltries += tries;
         std::cout << "It took you: " << p << " tries to get the answer: " << answer2 << "?!" << std::endl;
@@ -387,7 +387,7 @@ if (p == 1) //Conditional based on number of tries
             enter();
 
     }
-    else if (p < 1 && p <= 5) //Conditional based on tries up to 5 attempts
+    else if (p > 1 && p <= 5) //Conditional based on tries up to 5 attempts
     {
         totaltries += tries;
         std::cout << "It took you: " << p << " tries to get the answer: " << answer << "?!" << std::endl;
