@@ -420,6 +420,7 @@ std::cout << "Bonus amount of Tries: " << bonus << std::endl;
 if (bonus <= 5)
 {
     std::cout << "You get Bonus Money for your exemplary performance!!" << std::endl;
+    enter();
     if (bonus <= -10)
     {
         tm += 90000;

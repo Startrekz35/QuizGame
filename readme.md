@@ -23,3 +23,7 @@ I've also learned that comments are SUPER IMPORTANT and functions are a LIFESAVE
 Update 7/17
 I'm still wrapping up this project and tweaking the variable and creating the conclusion
 I had to add a variable to keep track of the bonus number of tries and had account for the pointer-to-address variable: reset
+
+Update 7/18 (Release Date)
+AT LONG LAST - This project is complete
+3 Questions - Bonus Tries - Ready to Show off in my Tech Portfolio
