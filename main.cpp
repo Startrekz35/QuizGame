@@ -6,7 +6,7 @@
 #include <any>
 #include "quizvariables.h"
 
-
+//Most of these variables are here to serve as a guide to me + organization
 signed int answer;
 char answer2;
 signed int &a {answer}; //Reference to link a to the number of answers
@@ -36,10 +36,15 @@ void totalprize()
 void gameover()
 {
     std::cout << "You have: $" << tm << std::endl
-                                << "Thank You For Playing!" 
+                                << "Thank You For Playing!" << std::endl
                                 << "GAME OVER" << std::endl;
 }
 
+void gameover2()
+{
+    std::cout << "You have: $" << *mon << std::endl
+                << "GAME OVER" << std::endl;
+}
 
 int main()
 {
@@ -48,7 +53,7 @@ currentamount = 10000;
 mon = &currentamount;
 
 //Directions
-std::cout << "You'll start with: $" << tm << std::endl; //total amount
+std::cout << "You'll start with: $" << tm << std::endl; //total amount of money you have currently
 std::cout << std::endl
             << "Press Enter to Continue" << std::endl;
                 enter(); //Enter to continue
@@ -59,18 +64,23 @@ std::cout << "This first question is worth: $" << currentamount << std::endl;
 std::cout << "Every time you get an answer wrong, you'll lose a certain amount." << std::endl;
     enter();
 
-std::cout << "For this question, you lose $" << abs(penalty) << " with every incorrect attempt." << std::endl;
+std::cout << "For this question, you lose $" << abs(penalty) << " with every incorrect attempt. (10 Attempts)" << std::endl;
     enter();
 
 std::cout << "We are also playing with golf rules, meaning: The lowest amount of tries wins you a bonus amount of money." << std::endl;
     enter();
 
 //Probably my biggest mistake to keep track of...
-std::cout << "To make things EVEN MORE interesting, the bonus money stacks, so if you meet the criteria for both bonuses, you receive those as well!" << std::endl;
+std::cout << "To make things EVEN MORE interesting, the bonus money stacks, so if you meet the criteria for some or "
+                << "all bonuses, you receive those as well!" << std::endl;
     enter();
             
 std::cout << "You'll also get stacks of bonus tries based on how many attempts it takes to get the right answer." << std::endl;
     enter();
+
+std::cout << "But if at ANY time, the question reaches ZERO DOLLARS due to the penalty amount, the game is IMMEDIATELY OVER!!" << std::endl;
+    enter();
+
 
 //Money and Bonuses
 //Attempts
@@ -89,7 +99,7 @@ std::cout << std::setw(col_width) << "-5" << std::setw(col_width) << "Up to 5 At
 //Tries
 std::cout << std::left;
 std::cout << std::setfill('-');
-std::cout << std::setw(col_width) << "BONUS" << std::setw(col_width) << "Tries" << std::endl; //Bonus money based on amount of tries left
+std::cout << std::setw(col_width) << "BONUS MONEY" << std::setw(col_width) << "Amount of Tries" << std::endl; //Bonus money based on amount of tries left
 std::cout << std::endl;
 
 std::cout << std::setw(col_width) << "$50,000" << std::setw(15) << "Less than -10 tries" << std::endl;
@@ -107,7 +117,7 @@ std::cout << std::setw(col_width) << "$5,000" << std::setw(12) << "1-5 tries" <<
 
 //Penalty
 std::cout << std::left;
-std::cout << std::setw(col_width) << "Questions" << std::setw(col_width) << "Penalty amount" << std::endl;
+std::cout << std::setw(col_width) << "Questions" << std::setw(col_width) << "Penalty Amount" << std::endl;
 std::cout << std::endl;
 
 std::cout << std::setw(col_width) << "Question 1" << std::setw(col_width) << "-$1000" << std::endl;
@@ -116,7 +126,7 @@ std::cout << std::setw(col_width) << "Question 1" << std::setw(col_width) << "-$
 std::cout << std::setw(col_width) << "Question 2" << std::setw(col_width) << "-$5000" << std::endl;
     enter();
 
-std::cout << std::setw(col_width) << "Question 3" << std::setw(col_width) << "-$15000" << std::endl;
+std::cout << std::setw(col_width) << "Question 3" << std::setw(col_width) << "-$20000" << std::endl;
     enter();
 
 /********************************************************************************************************/
@@ -146,7 +156,7 @@ while (std::cin >> answer) //Question loop
             
             if (currentamount <= 0) //Ends Game
                 {
-                    gameover();
+                    gameover2();
                     return 0;
                     
                     
@@ -167,7 +177,7 @@ while (std::cin >> answer) //Question loop
         
         std::cout << "Total amount: $" << totalamount << std::endl;
         totaltries = tries; //stores tries attempted
-        enter();
+            enter();
         totalamount = currentamount;
         break; //Breaks the while loop
     }
@@ -215,20 +225,21 @@ if (p == 1) //Conditional based on number of tries
 std::cout << std::endl;
 
 /************************************************************************************************************/
-bonus = *reset; // -9
+//Second Question
+bonus = *reset;
 std::cout << "Bonus Tries: " << bonus << std::endl;
 
 
 tries = 0; //This also turns the *reset to 0
-currentamount = 20000;
+currentamount = 25000;
 penalty = -5000;
 
 std::cout << "This question is worth: $" << *mon << std::endl;
     enter();
-std::cout << "For this question, you lose $" << abs(penalty) << " with every incorrect attempt." << std::endl;
+std::cout << "For this question, you lose $" << abs(penalty) << " with every incorrect attempt. (5 Attempts)" << std::endl;
     enter();
 
-std::cout << "What is the 18 letter of the Alphabet?" << std::endl; //Second Question
+std::cout << "What is the 18 letter of the Alphabet?" << std::endl;
 
 //Interesting tidbit
 //If the order of the if else conditions are reversed, the code won't work
@@ -245,7 +256,7 @@ while (std::cin >> answer2) //Question loop
         std::cout << "Total amount: " << tm << std::endl;
             totaltries += tries;
                 enter();
-        break; //Breaks the while loop
+        break;
 
 	}
 
@@ -256,32 +267,41 @@ while (std::cin >> answer2) //Question loop
         std::cout << "That is incorrect, try again" << std::endl
                     << "Number of tries: " << tries << std::endl
                     << "Current Amount: $" << currentamount << std::endl;
+                    
+            if (currentamount <= 0)
+                {
+                    gameover2();
+                    return 0;
+                    
+                    
+                }
     }
 
 }
 
-if (p == 1) //Conditional based on number of tries
+if (p == 1)
     {
         totaltries += tries;
-        std::cout << "It really took you only: " << p << " try to get the answer: " << answer2 << "?! You're awesome!" << std::endl; //Using Reference Variables to check numbers
+        std::cout << "It really took you only: " << p << " try to get the answer: " << answer2 << "?! You're awesome!" << std::endl;
         std::cout << std::endl;
         enter();
 
         std::cout << "For your reward, your number of tries will be shortened by ten." << std::endl;
-        *reset = *reset - 10; // -9
+        *reset = *reset - 10;
     
         std::cout << "Total Amount: $" << totalamount << std::endl;
-        enter();
+            enter();
+        
         std::cout << "Let us keep moving." << std::endl
                     << "Press Enter to Continue" << std::endl;
-        enter();
+                        enter();
 
     }
-    else if (p < 1 && p <= 5) //Conditional based on tries up to 5 attempts
+    else if (p < 1 && p <= 5)
     {
         totaltries += tries;
         std::cout << "It took you: " << p << " tries to get the answer: " << answer2 << "?!" << std::endl;
-        enter();
+            enter();
         std::cout <<  "Let's keep moving" << std::endl
                     << "Total Amount: $" << tm << std::endl;
 
@@ -294,7 +314,7 @@ if (p == 1) //Conditional based on number of tries
         std::cout << "It took you: " << p << " tries to get the answer: " << answer2 << "?!" << std::endl;
                     enter();
                     std::cout << "Let us keep moving" << std::endl;
-                    enter();
+                        enter();
                     std::cout << "Total Amount: $" << tm << std::endl;
     }
 std::cout << std::endl;
@@ -305,7 +325,7 @@ std::cout << "Bonus Tries: " << bonus << std::endl;
 
 tries = 0;
 currentamount = 100000;
-penalty = 15000;
+penalty = -20000;
 std::cout << "Your third question is a Multiple Choice one" << std::endl;
             enter();
 std::cout << "For this question, you lose $" << abs(penalty) << " with every incorrect attempt." << std::endl;
@@ -320,7 +340,7 @@ enter();
 
             
     
-while (std::cin >> answer) //Question loop
+while (std::cin >> answer)
 {
     
     
@@ -330,7 +350,7 @@ while (std::cin >> answer) //Question loop
         std::cout << "That is correct" << std::endl;
         std::cout << std::endl;
         std::cout << "Number of tries: " << tries << std::endl;
-        totalprize();
+            totalprize();
         break; 
     }
     else
@@ -340,6 +360,14 @@ while (std::cin >> answer) //Question loop
         std::cout << "That is incorrect, try again" << std::endl
                     << "Number of tries: " << tries << std::endl
                     << "Current Amount: $" << currentamount << std::endl;
+            
+            if (currentamount <= 0)
+                {
+                    gameover2();
+                    return 0;
+                    
+                    
+                }
 
     }
     
@@ -350,19 +378,21 @@ if (p == 1) //Conditional based on number of tries
         totaltries += tries;
         std::cout << "It really took you only: " << p << " try to get the answer: " << answer << "?! You're awesome!" << std::endl; //Using Reference Variables to check numbers
         std::cout << std::endl;
-        enter();
+            enter();
+        
         std::cout << "For your reward, your number of tries will be shortened by ten." << std::endl;
         *reset = *reset - 10; // -9
         
         std::cout << "Total Amount: $" << totalamount << std::endl;
-        enter();
+            enter();
 
     }
     else if (p < 1 && p <= 5) //Conditional based on tries up to 5 attempts
     {
         totaltries += tries;
         std::cout << "It took you: " << p << " tries to get the answer: " << answer << "?!" << std::endl;
-        enter();
+            enter();
+        
         std::cout <<  "Let's keep moving" << std::endl
                     << "Total Amount: $" << tm << std::endl;
 
@@ -422,8 +452,12 @@ if (bonus <= 5)
 else
 {
     std::cout << "You did not get any added money due to the amount of tries taken" << std::endl;
+    std::cout << "But you still made: $" << tm << std::endl;
 }
 
     gameover();
     return 0;
 }
+
+//3/22/22 ---> 7/18/22 (Final Build 1.0)
+//This Project be updated if I have anymore ideas to add
