@@ -1,5 +1,44 @@
 This Project is actually a challenge I gave to myself after reading through a reddit link at work (https://www.reddit.com/r/learnprogramming/comments/tk21by/i_have_used_an_entire_day_writing_this_i_hate_how/)
 
+Quiz Game
+
+Description
+The Quiz Game is a command-line C++ program that allows users to test their knowledge by answering a series of questions. The game provides direct and multiple-choice questions and checks the correctness of the user's answers, giving a final score at the end.
+
+Features:
+  Asks the user a mixture of direct and multiple-choice questions.
+  Displays feedback after each question (correct or incorrect).
+  Provides a final score at the end of the quiz.
+  Simple, text-based interface.
+
+Requirements
+
+To run this project, you need:
+  A C++ compiler (e.g., g++, Clang).
+  A terminal or command-line interface.
+
+
+How to Run the Program
+
+Clone or download the repository to your local machine:
+  git clone https://github.com/Startrekz35/QuizGame.git
+
+Navigate to the project directory:
+  cd QuizGame
+  
+Compile the C++ code using a compiler like g++:
+  g++ -o quizgame main.cpp
+
+Run the program:
+    ./quizgame
+
+How to Play:
+
+The game will display a series of questions with a mixture of enter the answer and multiple-choice answers.
+The program will tell you whether your answer is correct or not and proceed to the next question.
+After answering all the questions, the program will display your total score.
+
+
 Edit 7/5/22: Since the link is gone. I started this project with one if-else loop and built from there.
 
 I thought to myself, maybe I could do better, and I just kept going from there
